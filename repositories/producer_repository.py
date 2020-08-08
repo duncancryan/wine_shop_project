@@ -14,10 +14,17 @@ def save(producer):
     
 def select_all():
     producers = []
-    sql = "SELECT * FROM users"
+    sql = "SELECT * FROM producers"
     results = run_sql(sql)
     for row in results:
         producer = Producer(row['name'], row['country'], row['contact_number'], row['contact_email'], row['id'])
         producers.append(producer)
     return producers
 
+def select(id):
+    sql = "SELECT * FROM producers WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
+    if result is not None:
+        producer = Producer(result['name'], result['country'], result['contact_number'], result['contact_email'], result['id'])
+    return producer
