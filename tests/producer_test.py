@@ -9,7 +9,7 @@ class TestProducer(unittest.TestCase):
         self.assertEqual("Black Friars Distillery", self.producer.name)
     
     def test_producer_has_country(self):
-        pass
+        self.assertEqual("UK", self.producer.country)
     
     def test_producer_has_phone(self):
         pass
