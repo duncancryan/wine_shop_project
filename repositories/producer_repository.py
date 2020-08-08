@@ -12,3 +12,12 @@ def save(producer):
     producer.id = id
     return producer
     
+def select_all():
+    producers = []
+    sql = "SELECT * FROM users"
+    results = run_sql(sql)
+    for row in results:
+        producer = Producer(row['name'], row['country'], row['contact_number'], row['contact_email'], row['id'])
+        producers.append(producer)
+    return producers
+
