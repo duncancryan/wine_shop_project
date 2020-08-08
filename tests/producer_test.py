@@ -12,7 +12,7 @@ class TestProducer(unittest.TestCase):
         self.assertEqual("UK", self.producer.country)
     
     def test_producer_has_phone(self):
-        pass
+        self.assertEqual("01752 665 292", self.producer.contact_number)
     
     def test_producer_has_email(self):
         pass
