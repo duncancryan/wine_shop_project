@@ -1,3 +1,3 @@
 class Producer:
-    def __init__(self, name, country, contact_number, contact_email, id=None):
+    def __init__(self, name, country, contact_number, contact_email, active=True id=None):
         pass
