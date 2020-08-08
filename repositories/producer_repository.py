@@ -24,7 +24,16 @@ def select_all():
 def select(id):
     sql = "SELECT * FROM producers WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
     if result is not None:
         producer = Producer(result['name'], result['country'], result['contact_number'], result['contact_email'], result['id'])
     return producer
+
+def delete_all():
+    sql = "DELETE FROM producers"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM producers WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
