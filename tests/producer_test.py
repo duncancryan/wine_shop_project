@@ -6,7 +6,7 @@ class TestProducer(unittest.TestCase):
         self.producer = Producer("Black Friars Distillery", "UK", "01752 665 292", "info@plymouthdistillery.com")
 
     def test_producer_has_name(self):
-        pass
+        self.assertEqual("Black Friars Distillery", self.producer.name)
     
     def test_producer_has_country(self):
         pass
