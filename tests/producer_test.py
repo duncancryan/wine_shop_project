@@ -18,4 +18,4 @@ class TestProducer(unittest.TestCase):
         self.assertEqual("info@plymouthdistillery.com", self.producer.contact_email)
 
     def test_producer_starts_active(self):
-        pass
+        self.assertEqual(True, self.producer.active)

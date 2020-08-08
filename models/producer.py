@@ -4,3 +4,4 @@ class Producer:
         self.country = country
         self.contact_number = contact_number
         self.contact_email = contact_email
+        self.active = active
