@@ -8,7 +8,7 @@ class Producer:
         self.id = id
 
     def mark_inactive(self):
-        pass
+        self.active = False
 
     def mark_active(self):
-        pass
+        self.active = True

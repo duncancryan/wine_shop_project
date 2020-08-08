@@ -19,3 +19,12 @@ class TestProducer(unittest.TestCase):
 
     def test_producer_starts_active(self):
         self.assertEqual(True, self.producer.active)
+
+    def test_can_mark_producer_inactive(self):
+        self.producer.mark_inactive()
+        self.assertEqual(False, self.producer.active)
+
+    def test_can_mark_producer_active(self):
+        self.producer.mark_inactive()
+        self.producer.mark_active()
+        self.assertEqual(True, self.producer.active)
