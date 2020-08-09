@@ -23,5 +23,7 @@ print(products)
 
 product2.name = "Full Stop Rock 2016"
 product_repository.update(product2)
+producer1.name = "Plymouth Distillery"
+producer_repository.update(producer1)
 
 pdb.set_trace()
