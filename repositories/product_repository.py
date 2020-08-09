@@ -13,4 +13,12 @@ def save(product):
     product.id = id
     return product
 
-    
+def select_all():
+    products = []
+    sql = "SELECT * FROM PRODUCTS"
+    results = run_sql(sql)
+    for row in results:
+        producer = producer_repository.select(row['producer_id'])
+        product = Product(row['name'], row['type'], row['cost'], row['price'], row['case_price'], row['stock'], row['id'])
+        products.append(product)
+    return products
