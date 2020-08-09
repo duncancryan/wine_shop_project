@@ -2,7 +2,12 @@
 {% block content %}
 {% for product in products %}
 <div>
-    <b>Item:</b> {{product.name}} <b>Producer:</b> {{product.producer.name}} <b>Stock:</b> {{product.stock}}
+    <p>
+        <b>Item:</b> {{product.name}} <b>Producer:</b> {{product.producer.name}} <b>Stock:</b> {{product.stock}}
+    </p>
+    <p>
+        <a href="/products/{{product.id}}">More</a>
+    </p>
 </div>
 {% endfor %}
 
