@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% for producer in producers %}
+<div>
+    <p>
+        Producer:{{producer.name}}
+    </p>
+</div>
+{% endfor %}
 
 
 {% endblock %}
