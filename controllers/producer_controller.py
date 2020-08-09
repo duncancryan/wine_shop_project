@@ -45,3 +45,8 @@ def update_producer(id):
     producer = Producer(name, country, contact_number, contact_email, id)
     producer_repository.update(producer)
     return redirect("/producers")
+
+@producers_blueprint.route("/producers/<id>/delete", methods=['POST'])
+def delete_producer(id):
+    producer_repository.delete(id)
+    return redirect("/producers")
