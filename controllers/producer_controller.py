@@ -20,3 +20,13 @@ def show_producer(id):
 def new_producer():
     producers = producer_repository.select_all()
     return render_template("producers/new.html", producers=producers)
+
+@producers_blueprint.route("/producers", methods=['POST'])
+def create_producer():
+    name = request.form['name']
+    country = request.form['country']
+    contact_number = request.form['contact-number']
+    contact_email = request.form['contact-email']
+    new_producer = Producer(name, country, contact_number, contact_email)
+    producer_repository.save(new_producer)
+    return redirect("/producers")
