@@ -10,3 +10,8 @@ producers_blueprint = Blueprint("producers", __name__)
 def producers():
     producers = producer_repository.select_all()
     return render_template("producers/index.html", producers=producers)
+
+@producers_blueprint.route("/producers/<id>")
+def show_producer(id):
+    producer = producer_repository.select(id)
+    return render_template("producers/show.html", producer=producer)

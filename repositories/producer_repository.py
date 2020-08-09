@@ -22,6 +22,7 @@ def select_all():
     return producers
 
 def select(id):
+    producer = None
     sql = "SELECT * FROM producers WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
