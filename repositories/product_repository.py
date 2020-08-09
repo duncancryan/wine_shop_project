@@ -19,6 +19,16 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         producer = producer_repository.select(row['producer_id'])
-        product = Product(row['name'], row['type'], row['cost'], row['price'], row['case_price'], row['stock'], row['id'])
+        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['id'])
         products.append(product)
     return products
+
+def select(id):
+    product = None
+    sql = "SELECT * FROM products WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        producer = producer_repository.select(result['producer_id'])
+        product = Product(result['name'], result['type'], producer, result['cost'], result['price'], result['case_price'], result['stock'], result['id'])
+    return product
