@@ -30,3 +30,18 @@ def create_producer():
     new_producer = Producer(name, country, contact_number, contact_email)
     producer_repository.save(new_producer)
     return redirect("/producers")
+
+@producers_blueprint.route("/producers/<id>/edit")
+def edit_producer(id):
+    producer = producer_repository.select(id)
+    return render_template("/producers/edit.html", producer=producer)
+
+@producers_blueprint.route("/producers/<id>", methods=['POST'])
+def update_producer(id):
+    name = request.form["name"]
+    country = request.form["country"]
+    contact_number = request.form['contact-number']
+    contact_email = request.form['contact-email']
+    producer = Producer(name, country, contact_number, contact_email, id)
+    producer_repository.update(producer)
+    return redirect("/producers")

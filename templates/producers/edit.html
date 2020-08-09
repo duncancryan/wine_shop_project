@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+<form action="/producers/{{producer.id}}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{producer.name}}" required autofocus>
+    </div>
+    <div>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" value="{{producer.country}}" required>
+    </div>
+    <div>
+        <label for="contact-number">Contact Number:</label>
+        <input type="text" id="contact-number" name="contact-number" value="{{producer.contact_number}}" required>
+    </div>
+    <div>
+        <label for="contact_email"">Contact contact_email:</label>
+        <input type="text" id="contact-email" name="contact-email" value="{{producer.contact_email}}" required>
+    </div>
+    <button type="submit">Update</button>
+</form>
 
 {% endblock %}
