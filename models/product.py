@@ -6,4 +6,5 @@ class Product:
         self.cost = cost
         self.price = price
         self.case_price = case_price
+        self.stock = stock
         self.id = id
