@@ -21,5 +21,7 @@ print(producers)
 products = product_repository.select_all()
 print(products)
 
+product2.name = "Full Stop Rock 2016"
+product_repository.update(product2)
 
 pdb.set_trace()
