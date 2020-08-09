@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+<form action="/tasks" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+    </div>
+    <div>
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" placeholder="Type" required>
+    </div>
+    <div>
+        <label for="contact-number">Contact Number:</label>
+        <input type="text" id="contact-number" name="contact-number" placeholder="Contact Number" required>
+    </div>
+    <div>
+        <label for="contact-email">Type:</label>
+        <input type="text" id="contact-email" name="contact-email" placeholder="Contact Email" required>
+    </div>
+    <button type="submit">Add Producer</button>
+</form>
 
 {% endblock %}
