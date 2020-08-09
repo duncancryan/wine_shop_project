@@ -5,3 +5,7 @@ from models.product import Product
 from models.producer import Producer
 
 products_blueprint = Blueprint("products", __name__)
+
+@products_blueprint.route("/products")
+def products():
+    pass
