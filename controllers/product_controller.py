@@ -16,7 +16,7 @@ def show_product(id):
     product = product_repository.select(id)
     return render_template("/products/show.html", product=product)
 
-# @products_blueprint.route("/products/<id>/edit")
-# def edit_product(id):
-#     producers = producer_repository.select_all()
-#     return render_template("p")    
+@products_blueprint.route("/products/new")
+def new_product():
+    producers = producer_repository.select_all()
+    return render_template("products/new.html", producers=producers)    
