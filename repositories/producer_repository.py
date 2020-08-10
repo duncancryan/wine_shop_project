@@ -51,10 +51,10 @@ def select_country(country):
     # will need an empty list to put results in
     producers = []
     # sql will need to be SELECT FROM with a WHERE clause for country
-    sql = "SELECT FROM producers WHERE country = %s"
+    sql = "SELECT * FROM producers WHERE country = %s"
     # values will be the country being passed in
     # this will need to be in single quotes here I think, to fit the sql?
-    values = ['country']
+    values = [country]
     # multiple possible results, so results and then a for loop
     results = run_sql(sql, values)
     for row in results:
