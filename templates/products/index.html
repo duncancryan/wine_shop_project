@@ -5,6 +5,15 @@
     <p>
         <b>Item:</b> {{product.name}} <b>Producer:</b> {{product.producer.name}} <b>Stock:</b> {{product.stock}}
     </p>
+    {% if product.stock <= 10 %}
+    <aside>
+        <p>
+            Stock running low. Please contact supplier:
+        </p>
+       <p>Email: {{product.producer.contact_email}}</p>
+       <p>Telephone: {{product.producer.contact_number}}</p>
+    </aside>
+    {% endif %}
     <p>
         <a href="/products/{{product.id}}">More</a>
     </p>
@@ -15,6 +24,14 @@
     </p>
 </div>
 {% endfor %}
-
+<div>
+    <a href="/products/new">
+        <div>
+            <p>
+                Add Product
+            </p>
+        </div>
+    </a>
+</div>
 
 {% endblock %}

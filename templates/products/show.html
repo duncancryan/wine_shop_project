@@ -1,6 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
+<hgroup>
+    <h2>{{product.name}}</h2>
+    <h3>{{product.producer.name}}</h3>
+</hgroup>
+    <ul>
+        <li>
+            <b>Type: </b>{{product.type}}
+        </li>
+        <li>
+            <b>Cost: </b>{{product.cost}}
+        </li>
+        <li>
+            <b>Price: </b>{{product.price}}
+        </li>
+        <li>
+            <b>Individual Mark-Up: </b>{{individual_markup}}%
+        </li>
+        <li>
+            <b>Case Price: </b>{{product.case_price}}
+        </li>
+        <li>
+            <b>Case Mark-Up: </b>{{case_markup}}%
+        </li>
+        <li>
+            <b>Stock: </b>{{product.stock}}
+        </li>
+    </ul>
+        {% if product.stock <= 10 %}
+        <aside>
+            <p>
+                Stock running low. Please contact supplier:
+            </p>
+            <p>Email: {{product.producer.contact_email}}</p>
+            <p>Telephone: {{product.producer.contact_number}}</p>
+        </aside>
+        {% endif %}
 
-{{product.name}}
+
 
 {% endblock %}

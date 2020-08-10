@@ -14,7 +14,9 @@ def products():
 @products_blueprint.route("/products/<id>")
 def show_product(id):
     product = product_repository.select(id)
-    return render_template("/products/show.html", product=product)
+    individual_markup = product.calculate_markup_individual()
+    case_markup = product.calculate_markup_case()
+    return render_template("/products/show.html", product=product, individual_markup=individual_markup, case_markup=case_markup)
 
 @products_blueprint.route("/products/new")
 def new_product():
