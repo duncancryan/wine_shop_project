@@ -36,7 +36,11 @@
             <p>Telephone: {{product.producer.contact_number}}</p>
         </aside>
         {% endif %}
-
+        <div>
+            <a href="/products/{{product.id}}/edit">
+            <p>Update Inventory</p>
+            </a>
+        </div>
 
 
 {% endblock %}

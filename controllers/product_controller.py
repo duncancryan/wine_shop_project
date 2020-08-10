@@ -43,6 +43,20 @@ def edit_product(id):
     producers = product_repository.select_all()
     return render_template("products/edit.html", product=product, producers=producers)
 
+@products_blueprint.route("/products/<id>", methods=['POST'])
+def update_product(id):
+    name = request.form['name']
+    type = request.form['type']
+    producer_id = request.form['producer-id']
+    producer = producer_repository.select(producer_id)
+    cost = request.form['cost']
+    price = request.form['price']
+    case_price = request.form['case-price']
+    stock = request.form['stock']
+    product = Product(name, type, producer, cost, price, case_price, stock)
+    product_repository.update(product)
+    return redirect("/products")
+
 @products_blueprint.route("/products/<id>/delete", methods=['POST'])
 def delete_product(id):
     product_repository.delete(id)
