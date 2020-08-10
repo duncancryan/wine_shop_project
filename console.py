@@ -29,5 +29,6 @@ producer_repository.update(producer1)
 countries = producer_repository.get_countries_distinct()
 print(countries)
 sa_producers = producer_repository.select_country("South Africa")
-print(sa_producers)
+sa_01 = sa_producers[0]
+print(sa_01.name)
 pdb.set_trace()
