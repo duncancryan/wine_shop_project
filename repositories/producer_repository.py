@@ -66,6 +66,7 @@ def get_countries_distinct():
     countries = []
     sql = "SELECT DISTINCT country FROM producers"
     results = run_sql(sql)
-    for country in results:
+    for row in results:
+        country = row[0]
         countries.append(country)
     return countries
