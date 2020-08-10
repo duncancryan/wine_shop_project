@@ -70,3 +70,13 @@ def get_countries_distinct():
         country = row[0]
         countries.append(country)
     return countries
+
+def products(producer):
+    products = []
+    sql = "SELECT * FROM products WHERE producer_id = %s"
+    values = [producer.id]
+    results = run_sql(sql, values)
+    for row in results:
+        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['id'])
+        products.append(product)
+    return products
