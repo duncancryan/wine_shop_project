@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/producers" method="post">
+<form action="/products" method="POST">
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Name" required autofocus>
@@ -11,28 +11,28 @@
         <input type="text" id="type" name="type" placeholder="Type" required>
     </div>
     <div>
-        <label for="producer">Producer:</label>
-        <select id="producer" name="producer_id">
+        <label for="producer-id">Producer:</label>
+        <select id="producer-id" name="producer-id">
             {% for producer in producers %}
-            <option value="{{ producer.id }}">{{ producer.name }}</option>
+            <option value="{{producer.id}}">{{ producer.name }}</option>
             {% endfor %}
         </select>
     </div>
     <div>
         <label for="cost">Cost:</label>
-        <input type="text" id="cost" name="cost" placeholder="Cost" required>
+        <input type="number" step="any" id="cost" name="cost" placeholder="Cost" required>
     </div>
     <div>
         <label for="price">Price:</label>
-        <input type="text" id="price" name="price" placeholder="Price" required>
+        <input type="number" step="any" id="price" name="price" placeholder="Price" required>
     </div>
     <div>
         <label for="case-price">Case-Price:</label>
-        <input type="text" id="case-price" name="case-price" placeholder="Case-Price" required>
+        <input type="number" step="any" id="case-price" name="case-price" placeholder="Case-Price" required>
     </div>
     <div>
         <label for="stock">Stock:</label>
-        <input type="text" id="stock" name="stock" placeholder="Stock" required>
+        <input type="number" id="stock" name="stock" placeholder="Stock" required>
     </div>
     <button type="submit">Add Product</button>
 </form>

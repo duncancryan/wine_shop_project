@@ -20,3 +20,19 @@ def show_product(id):
 def new_product():
     producers = producer_repository.select_all()
     return render_template("products/new.html", producers=producers)    
+
+@products_blueprint.route("/products", methods=['POST'])
+def create_product():
+    name = request.form['name']
+    type = request.form['type']
+    producer_id = request.form['producer-id']
+    producer = producer_repository.select(producer_id)
+    cost = request.form['cost']
+    price = request.form['price']
+    case_price = request.form['case-price']
+    stock = request.form['stock']
+    new_product = Product(name, type, producer, cost, price, case_price, stock)
+    product_repository.save(new_product)
+    return redirect("/products")
+
+@products_blueprint.route("")
