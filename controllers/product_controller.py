@@ -39,3 +39,4 @@ def create_product():
 def delete_product(id):
     product_repository.delete(id)
     return redirect("/products")
+

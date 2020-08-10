@@ -43,3 +43,21 @@ def update(producer):
     sql = "UPDATE producers SET (name, country, contact_number, contact_email) = (%s, %s, %s, %s) WHERE id = %s"
     values = [producer.name, producer.country, producer.contact_number, producer.contact_email, producer.id]
     run_sql(sql, values)
+
+# Next, I need to create a function which queries the database and identifies producers by country
+# I can then call this in the controller to create filtering features for the list of producers
+
+def select_country(country):
+    # will need an empty list to put results in
+    producers = []
+    # sql will need to be SELECT FROM with a WHERE clause for country
+    sql = "SELECT FROM producers WHERE country = %s"
+    # values will be the country being passed in
+    # this will need to be in single quotes here I think, to fit the sql?
+    values = ['country']
+    # multiple possible results, so results and then a for loop
+    results = run_sql(sql, values)
+    for row in results:
+        producer = Producer(row['name'], row['country'], row['contact_number'], row['contact_email'], row['id'])
+        producers.append(producer)
+    return producers
