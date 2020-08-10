@@ -26,4 +26,8 @@ product_repository.update(product2)
 producer1.name = "Plymouth Distillery"
 producer_repository.update(producer1)
 
+countries = producer_repository.get_countries_distinct()
+print(countries)
+sa_producers = producer_repository.select_country("South Africa")
+print(sa_producers)
 pdb.set_trace()

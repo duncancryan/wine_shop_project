@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% for producer in producers %}
+<div>
+    <p>
+        Producer:{{producer.name}}
+    </p>
+    <p>
+        <a href="/producers/{{producer.id}}">More</a>
+    </p>
+    <p>
+        <a href="/producers/{{producer.id}}/edit">Update</a>
+    </p>
+    <p>
+    <form action="/producers/{{ producer.id }}/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+    </form>
+    </p>
+</div>
+{% endfor %}
+
+
+{% endblock %}

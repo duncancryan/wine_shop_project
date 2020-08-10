@@ -50,3 +50,8 @@ def update_producer(id):
 def delete_producer(id):
     producer_repository.delete(id)
     return redirect("/producers")
+
+@producers_blueprint.route("/producers/<country>")
+def filter_producers_by_country(country):
+    producers = producer_repository.select_country()
+    return render_template("/producers/country.html", producers=producers)

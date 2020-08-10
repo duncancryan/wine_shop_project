@@ -61,3 +61,11 @@ def select_country(country):
         producer = Producer(row['name'], row['country'], row['contact_number'], row['contact_email'], row['id'])
         producers.append(producer)
     return producers
+
+def get_countries_distinct():
+    countries = []
+    sql = "SELECT DISTINCT country FROM producers"
+    results = run_sql(sql)
+    for country in results:
+        countries.append(country)
+    return countries
