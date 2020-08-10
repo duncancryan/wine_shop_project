@@ -9,7 +9,8 @@ producers_blueprint = Blueprint("producers", __name__)
 @producers_blueprint.route("/producers")
 def producers():
     producers = producer_repository.select_all()
-    return render_template("producers/index.html", producers=producers)
+    countries = producer_repository.get_countries_distinct()
+    return render_template("producers/index.html", producers=producers, countries=countries)
 
 @producers_blueprint.route("/producers/<id>")
 def show_producer(id):
@@ -53,5 +54,5 @@ def delete_producer(id):
 
 @producers_blueprint.route("/producers/<country>")
 def filter_producers_by_country(country):
-    producers = producer_repository.select_country()
-    return render_template("/producers/country.html", producers=producers)
+    local_producers = producer_repository.select_country(str(country))
+    return render_template("/producers/country.html", local_producers=local_producers)

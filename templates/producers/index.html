@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+<aside>
+    <!-- need to pass countries to this route (could use SELECT DISTINCT?) -->
+    {% for country in countries %}
+    <a href="/producers/{{country}}">{{country}}</a>
+    {% endfor %}
+</aside>
 {% for producer in producers %}
 <div>
     <p>
