@@ -15,7 +15,7 @@ def producers():
 @producers_blueprint.route("/producers/<id>")
 def show_producer(id):
     producer = producer_repository.select(id)
-    products = producer_repository.products()
+    products = producer_repository.products(producer)
     return render_template("producers/show.html", producer=producer, products=products)
 
 @producers_blueprint.route("/producers/new")

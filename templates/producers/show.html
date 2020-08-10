@@ -1,6 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
+<h2>{{producer.name}}</h2>
+<ul>
+    <li>
+        <b>Country: </b> {{producer.country}}
+    </li>
+    <li>
+        <b>Contact Number: </b> {{producer.contact_number}}
+    </li>
+    <li>
+        <b>Contact Email: </b> {{producer.contact_email}}
+    </li>
+</ul>
 
-{{producer.name}}
+<h3>Products:</h3>
 
+{% for product in products %}
+<div>
+    <p>
+        <b>Item:</b> {{product.name}} <b>Producer:</b> {{product.producer.name}} <b>Stock:</b> {{product.stock}}
+    </p>
+    {% if product.stock <= 10 %}
+    <aside>
+        <p>
+            Stock running low. Please contact supplier:
+        </p>
+    </aside>
+    {% endif %}
+    <p>
+        <a href="/products/{{product.id}}">More</a>
+    </p>
+    <p>
+    <form action="/products/{{ product.id }}/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+    </form>
+    </p>
+</div>
+{% endfor %}
 {% endblock %}
