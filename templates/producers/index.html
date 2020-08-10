@@ -12,7 +12,9 @@
         <a href="/producers/{{producer.id}}/edit">Update</a>
     </p>
     <p>
-        <a href="/producers/{{producer.id}}/delete">Delete</a>
+        <form action="/producers/{{ producer.id }}/delete" method="POST">
+            <input class="btn btn--danger" type="submit" value="delete" />
+        </form>
     </p>
 </div>
 {% endfor %}

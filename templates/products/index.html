@@ -8,6 +8,11 @@
     <p>
         <a href="/products/{{product.id}}">More</a>
     </p>
+    <p>
+    <form action="/products/{{ product.id }}/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+    </form>    
+    </p>
 </div>
 {% endfor %}
 
