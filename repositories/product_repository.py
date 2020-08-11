@@ -66,7 +66,18 @@ def get_distinct_types():
         types.append(type)
     return types
 
-def get_low_stock():
+def select_type(type):
+    products =[]
+    sql = "SELECT * FROM products WHERE type = %s"
+    values = [type]
+    results = run_sql(sql, values)
+    for row in results:
+        producer = producer_repository.select(row['producer_id'])
+        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['id'])
+        products.append(product)
+    return products
+
+def low_stock():
     products = []
     sql = "SELECT * FROM products WHERE stock < 10"
     results = run_sql(sql)
