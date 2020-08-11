@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <title>Document</title>
+    <title>Wine Shop</title>
 </head>
 <body>
+    <header>
+        <h1>Duncan's Wine Shop</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/products">Products</a>
+                </li>
+                <li>
+                    <a href="/producers">Producers</a>
+                </li>
+                <li>
+                    <a href="/products/new">Add Product</a>
+                </li>
+                <li>
+                    <a href="/producers/new">Add Producer</a>
+                </li>
+                <li>
+                    <a href="/">Create Deal</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     {% block content %}
     {% endblock %}
 </body>
