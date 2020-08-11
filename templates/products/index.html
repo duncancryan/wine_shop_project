@@ -8,7 +8,7 @@
     </section>
     <section>
         {% for type in types %}
-        <a href="{{ url_for('products.by_type', type=type) }}">{{type}}</a>
+        <a href="/products/filter/{{type}}">{{type}}</a>
         {% endfor %}
     </section>
     <section>
@@ -49,7 +49,7 @@
 </div>
     <div>
         <a href="/products/{{product.id}}/edit">
-            <p>Update Inventory</p>
+            <p>Update Details</p>
         </a>
     </div>
 {% endfor %}

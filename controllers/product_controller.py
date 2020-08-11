@@ -66,11 +66,11 @@ def delete_product(id):
 
 @products_blueprint.route("/products/<producerid>/")
 def by_producer(producerid):
-    producer = producer_repository.select(producerid)
-    product_catalogue = product_repository.select_producer(producer)
-    return render_template("/products/producer.html", product_catalogue=product_catalogue, producer=producer)
+    producer_case = producer_repository.select(producerid)
+    product_catalogue = product_repository.select_producer(producer_case)
+    return render_template("/products/producer.html", product_catalogue=product_catalogue, producer_case=producer_case)
 
-@products_blueprint.route("/products/<type>/")
+@products_blueprint.route("/products/filter/<type>/")
 def by_type(type):
     producers = producer_repository.select_all()
     type_products = product_repository.select_type(type)
