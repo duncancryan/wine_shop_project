@@ -11,6 +11,9 @@
         <a href="{{ url_for('products.by_type', type=type) }}">{{type}}</a>
         {% endfor %}
     </section>
+    <section>
+        <a href="/products/low-stock">Low Stock</a>
+    </section>
 </aside>
 
 {% for product in products %}
