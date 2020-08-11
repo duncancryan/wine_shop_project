@@ -6,11 +6,11 @@
   }
   
   .btn--danger {
-    background-color: rgb(71, 167, 212);
+    background-color: rgb(216, 118, 53);
   }
   
   .btn--danger:hover {
-    background-color: rgb(23, 116, 160);
+    background-color: rgb(136, 48, 48);
   }
   
   .btn--action:hover {
