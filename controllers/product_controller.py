@@ -70,7 +70,7 @@ def by_producer(producerid):
     product_catalogue = product_repository.select_producer(producer)
     return render_template("/products/producer.html", product_catalogue=product_catalogue, producer=producer)
 
-@products_blueprint.route("/products/<type>")
+@products_blueprint.route("/products/<type>/")
 def by_type(type):
     type_products = product_repository.select_type(type)
     return render_template("/products/type.html", type_products=type_products)

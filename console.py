@@ -43,4 +43,10 @@ nj_01 = nj_wines[0]
 nj_02 = nj_wines[1]
 print(nj_01.name)
 print(nj_02.name)
+
+red_wines = product_repository.select_type("Red Wine")
+rw_1 = red_wines[0]
+rw_2 = red_wines[1]
+print(rw_1.name)
+print(rw_2.name)
 pdb.set_trace()
