@@ -17,6 +17,8 @@ product1 = Product("Plymouth Gin", "Gin", producer1, 10.50, 22.00, 115.00, 43)
 product_repository.save(product1)
 product2 = Product("Newton Johnson Pinot Noir 2015", "Red Wine", producer2, 8.50, 18.95, 107.50, 34)
 product_repository.save(product2)
+product3 = Product("Newton Johnson Syrah Grenache 2018", "Red Wine", producer2, 6.80, 14.50, 80.00, 54)
+product_repository.save(product2)
 
 producers = producer_repository.select_all()
 print(producers)
@@ -35,4 +37,10 @@ sa_01 = sa_producers[0]
 sa_02 = sa_producers[1]
 print(sa_01.name)
 print(sa_02.name)
+
+nj_wines = product_repository.select_producer(producer2)
+nj_01 = nj_wines[0]
+nj_02 = nj_wines[1]
+print(nj_01.name)
+print(nj_02.name)
 pdb.set_trace()
