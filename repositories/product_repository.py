@@ -56,3 +56,12 @@ def select_producer(producer):
         product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['id'])
         products.append(product)
     return products
+
+def get_distinct_types():
+    types = []
+    sql = "SELECT DISTINCT type FROM products"
+    results = run_sql(sql)
+    for row in results:
+        type = row[0]
+        types.append(type)
+    return types
