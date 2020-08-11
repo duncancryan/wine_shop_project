@@ -10,7 +10,8 @@ products_blueprint = Blueprint("products", __name__)
 def products():
     products = product_repository.select_all()
     producers = producer_repository.select_all()
-    return render_template('/products/index.html', products=products, producers=producers)
+    types = product_repository.get_distinct_types()
+    return render_template('/products/index.html', products=products, producers=producers, types=types)
 
 @products_blueprint.route("/products/<id>")
 def show_product(id):
@@ -68,4 +69,8 @@ def by_producer(producerid):
     producer = producer_repository.select(producerid)
     product_catalogue = product_repository.select_producer(producer)
     return render_template("/products/producer.html", product_catalogue=product_catalogue, producer=producer)
+
+@products_blueprint.route("/products/<type>")
+def by_type(type):
+    type_products = product_repository.
 

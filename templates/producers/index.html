@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-<aside>
-    <!-- need to pass countries to this route (could use SELECT DISTINCT?) -->
-    {% for country in countries %}
-    <a href="{{ url_for('producers.by_country', country=country) }}">{{country}}</a>
-    {% endfor %}
+<aside class="filter-bar">
+    <section>
+        {% for country in countries %}
+        <a href="{{ url_for('producers.by_country', country=country) }}">{{country}}</a>
+        {% endfor %}
+    </section>
 </aside>
 {% for producer in producers %}
 <div>

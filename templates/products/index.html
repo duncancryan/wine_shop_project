@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<aside>
-    {% for producer in producers %}
-    <a href="/products/{{producer.id}}/">{{producer.name}}</a>
-    {% endfor %}
+<aside class="filter-bar">
+    <section>
+        {% for producer in producers %}
+        <a href="/products/{{producer.id}}/">{{producer.name}}</a>
+        {% endfor %}
+    </section>
+    <section>
+        {% for type in types %}
+        <a href="/products/{{type}}/">{{type}}</a>
+        {% endfor %}
+    </section>
 </aside>
 
 {% for product in products %}
