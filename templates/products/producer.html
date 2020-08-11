@@ -2,7 +2,7 @@
 {% block content %}
 <h2>Producer: {{producer_case.name}}</h2>
 {% for product in product_catalogue %}
-<div>
+<div class="product-wrapper">
     <p>
         <b>Item:</b> {{product.name}} <b>Producer:</b> {{product.producer.name}} <b>Stock:</b> {{product.stock}}
     </p>
