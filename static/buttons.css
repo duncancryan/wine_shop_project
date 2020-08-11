@@ -1,0 +1,26 @@
+.btn {
+    border:0px none;
+    padding: 4px 8px;
+    color: #FFFFFF;
+    cursor:pointer;
+  }
+  
+  .btn--danger {
+    background-color: rgb(71, 167, 212);
+  }
+  
+  .btn--danger:hover {
+    background-color: rgb(23, 116, 160);
+  }
+  
+  .btn--action:hover {
+    background-color: rgb(29, 154, 212);
+  }
+  
+  .btn--action {
+    background-color: rgb(29, 154, 212);
+  }
+  
+  .btn--wrapper {
+    margin: 0px 0px 30px 0px;
+  }

@@ -4,11 +4,11 @@
 <form action="/products/{{product.id}}" method="POST">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+        <input type="text" id="name" name="name" value="{{product.name}}" required autofocus>
     </div>
     <div>
         <label for="type">Type:</label>
-        <input type="text" id="type" name="type" placeholder="Type" required>
+        <input type="text" id="type" name="type" value="{{product.type}}" required>
     </div>
     <div>
         <label for="producer-id">Producer:</label>
@@ -20,19 +20,19 @@
     </div>
     <div>
         <label for="cost">Cost:</label>
-        <input type="number" step="any" id="cost" name="cost" placeholder="Cost" required>
+        <input type="number" step="any" id="cost" name="cost" value="{{product.cost}}" required>
     </div>
     <div>
         <label for="price">Price:</label>
-        <input type="number" step="any" id="price" name="price" placeholder="Price" required>
+        <input type="number" step="any" id="price" name="price" value="{{product.price}}" required>
     </div>
     <div>
         <label for="case-price">Case-Price:</label>
-        <input type="number" step="any" id="case-price" name="case-price" placeholder="Case-Price" required>
+        <input type="number" step="any" id="case-price" name="case-price" value="{{product.case_price}}" required>
     </div>
     <div>
         <label for="stock">Stock:</label>
-        <input type="number" id="stock" name="stock" placeholder="Stock" required>
+        <input type="number" id="stock" name="stock" value="{{product.stock}}" required>
     </div>
     <button type="submit">Update Product</button>
 </form>
