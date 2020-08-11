@@ -73,5 +73,5 @@ def by_producer(producerid):
 @products_blueprint.route("/products/<type>/")
 def by_type(type):
     type_products = product_repository.select_type(type)
-    return render_template("/products/type.html", type_products=type_products)
+    return render_template("/products/type.html/", type_products=type_products)
 
