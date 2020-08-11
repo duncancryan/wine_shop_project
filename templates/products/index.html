@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+<aside>
+    {% for producer in producers %}
+    <a href="{{ url_for('products.by_producer' producer_id=producer.id) }}">{{producer.name}}</a>
+    {% endfor %}
+</aside>
+
 {% for product in products %}
 <div>
     <p>
