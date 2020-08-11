@@ -5,8 +5,8 @@ from models.product import Product
 # start with basic CRUD, then pseudocode logic to allow filtered views
 
 def save(producer):
-    sql = "INSERT INTO producers (name, country, contact_number, contact_email, active) VALUES (%s, %s, %s, %s, %s) RETURNING *"
-    values = [producer.name, producer.country, producer.contact_number, producer., producer.active]
+    sql = "INSERT INTO producers (name, country, contact_number, contact_email) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [producer.name, producer.country, producer.contact_number, producer.contact_email]
     results = run_sql(sql, values)
     id = results[0]['id']
     producer.id = id
@@ -17,7 +17,7 @@ def select_all():
     sql = "SELECT * FROM producers"
     results = run_sql(sql)
     for row in results:
-        producer = Producer(row['name'], row['country'], row['contact_number'], row['contact_email'], row['id'], row['active'])
+        producer = Producer(row['name'], row['country'], row['contact_number'], row['contact_email'], row['id'])
         producers.append(producer)
     return producers
 
@@ -27,7 +27,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        producer = Producer(result['name'], result['country'], result['contact_number'], result['contact_email'], result['id'], result['active'])
+        producer = Producer(result['name'], result['country'], result['contact_number'], result['contact_email'], result['id'])
     return producer
 
 def delete_all():
@@ -40,8 +40,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(producer):
-    sql = "UPDATE producers SET (name, country, contact_number, contact_email, active) = (%s, %s, %s, %s, %s) WHERE id = %s"
-    values = [producer.name, producer.country, producer.contact_number, producer.contact_email, producer.id, producer.active]
+    sql = "UPDATE producers SET (name, country, contact_number, contact_email) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [producer.name, producer.country, producer.contact_number, producer.contact_email, producer.id]
     run_sql(sql, values)
 
 # Next, I need to create a function which queries the database and identifies producers by country
@@ -58,7 +58,7 @@ def select_country(country):
     # multiple possible results, so results and then a for loop
     results = run_sql(sql, values)
     for row in results:
-        producer = Producer(row['name'], row['country'], row['contact_number'], row['contact_email'], row['id'], row['active'])
+        producer = Producer(row['name'], row['country'], row['contact_number'], row['contact_email'], row['id'])
         producers.append(producer)
     return producers
 

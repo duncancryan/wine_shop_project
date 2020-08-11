@@ -6,8 +6,7 @@ CREATE TABLE producers (
     name VARCHAR(255),
     country VARCHAR(255),
     contact_number VARCHAR(255),
-    contact_email VARCHAR(255),
-    active BOOLEAN
+    contact_email VARCHAR(255)
 );
 
 CREATE TABLE products (
