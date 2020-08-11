@@ -47,3 +47,12 @@ def update(product):
     values = [product.name, product.type, product.cost, product.price, product.case_price, product.stock, product.producer.id, product.id]
     run_sql(sql, values)
 
+def select_producer(producer):
+    products = []
+    sql = "SELECT * FROM products WHERE producer_id = %s"
+    values = [producer.id]
+    results = run_sql(sql, values)
+    for row in results:
+        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['id'])
+        products.append(product)
+    return products
