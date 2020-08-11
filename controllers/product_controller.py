@@ -63,9 +63,9 @@ def delete_product(id):
     product_repository.delete(id)
     return redirect("/products")
 
-@products_blueprint.route("/products/<producer-id>/")
-def by_producer(producer_id):
-    producer = producer_repository.select(producer_id)
-    product_catalogue = product_repository(producer)
+@products_blueprint.route("/products/<producerid>/")
+def by_producer(producerid):
+    producer = producer_repository.select(producerid)
+    product_catalogue = product_repository.select_producer(producer)
     return render_template("/products/producer.html", product_catalogue=product_catalogue, producer=producer)
 
