@@ -45,6 +45,10 @@ def update_producer(id):
     contact_number = request.form['contact-number']
     contact_email = request.form['contact-email']
     producer = Producer(name, country, contact_number, contact_email, id)
+    if request.form['active'] == "False":
+        producer.mark_inactive()
+    elif request.form['active'] == "True":
+        producer.mark_active()
     producer_repository.update(producer)
     return redirect("/producers")
 
