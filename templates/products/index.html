@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Products</h2>
 <main class="index-content">
     <aside class="filter-bar">
         <section>
@@ -32,6 +31,7 @@
     </aside>
 
     <article class="item-list">
+        <h2>Products</h2>
         {% for product in products %}
         <div class="product-wrapper">
             <section class="details">

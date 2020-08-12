@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Producers</h2>
-<main class="index-content"></main>
+<main class="index-content">
     <aside class="filter-bar">
         <section>
             <h3>Filter by Country</h3>
@@ -20,6 +19,7 @@
         </section>
     </aside>
     <article class="item-list">
+        <h2>Producers</h2>
         {% for producer in producers %}
         <div class="producer-wrapper">
             <p>

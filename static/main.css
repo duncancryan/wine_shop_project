@@ -59,8 +59,20 @@ header > nav > ul > li {
 
 .filter-bar {
     grid-area: sidebar;
+    margin-top: 10px;
 }
 
 .item-list {
     grid-area: main;
 }
+
+h2 {
+    margin-left: 10px;
+}
+
+
+#home-nav {
+    display: flex;
+    flex-flow: row wrap;
+}
+

@@ -3,6 +3,7 @@
     padding: 4px 8px;
     color: #FFFFFF;
     cursor:pointer;
+    border-radius: 10%;
   }
   
   .btn--danger {
@@ -24,3 +25,14 @@
   .btn--wrapper {
     margin: 0px 0px 0px 0px;
   }
+
+  .btn--link:hover {
+    background-color: rgb(29, 154, 212);
+  }
+  
+  .btn--link {
+    background-color: rgb(29, 154, 212);
+    color: ;
+  }
+
+
