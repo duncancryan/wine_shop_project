@@ -6,7 +6,7 @@
 {% for product in low_products %}
 <div class="product-wrapper">
     <p>
-        <b>Item:</b> {{product.name}} <b>Producer:</b> {{product.producer.name}} <b>Stock:</b> {{product.stock}}
+        <b>Item:</b> {{product.name}} <br><b>Producer:</b> {{product.producer.name}} <br><b>Stock:</b> {{product.stock}}
     </p>
     {% if product.stock == 0 %}
     <aside class="warning">

@@ -16,10 +16,20 @@
         <label for="producer-id">Producer:</label>
         <select id="producer-id" name="producer-id">
             {% for producer in producers %}
+            {% if producer.active %}
             <option value="{{producer.id}}">{{ producer.name }}</option>
+            {% endif %}
             {% endfor %}
         </select>
-        <a href="/producers/new">If the producer you need is not in the list, please register it <b>here</b> before completing this form</a>
+        <div class="warning">
+        <p>If the producer you need is not in the list: </p>
+        <p>
+        <a href="/producers"><b>First</b>, check <b>HERE</b> to see if it has been deactivated </a>
+        </p>
+        <p>
+        <a href="/producers/new">Otherwise, please register new producers <b>HERE</b></a>
+        </p>
+        </div>
     </div>
     <div>
         <label for="cost">Cost:</label>

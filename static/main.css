@@ -43,7 +43,9 @@ body {
 .warning {
     color: rgb(218, 27, 52);
     border: rgb(37, 37, 37);
-    border-width: 1px;
+    border-width: 5px;
+    background-color: rgb(247, 201, 222);
+    margin: 10px 1000px 5px 5px;
 }
 
 header > nav > ul > li {
