@@ -37,6 +37,8 @@ sa_01 = sa_producers[0]
 sa_02 = sa_producers[1]
 print(sa_01.name)
 print(sa_02.name)
+sa_01.mark_inactive()
+producer_repository.update(sa_01)
 
 nj_wines = product_repository.select_producer(producer2)
 nj_01 = nj_wines[0]
