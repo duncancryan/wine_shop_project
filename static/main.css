@@ -19,6 +19,9 @@ body {
     background: rgb(202, 221, 213);
     color: rgb(37, 37, 37);
     border-radius: 1%;
+    display: grid;
+    grid-template-areas: details options;
+    grid-template-rows: 8fr 2fr;
 }
 
 .producer-wrapper {
@@ -27,4 +30,14 @@ body {
     background: rgb(192, 172, 181);
     color: rgb(255, 255, 255);
     border-radius: 1%;
+    display: grid;
+    grid-template-areas: details options;
+    grid-template-rows: 8fr 2fr;
 }
+
+.options {
+    grid-area: options;
+}
+
+
+
