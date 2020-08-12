@@ -74,7 +74,7 @@ def by_producer(producerid):
 def by_type(type):
     producers = producer_repository.select_all()
     type_products = product_repository.select_type(type)
-    return render_template("/products/type.html", type_products=type_products, producers=producers)
+    return render_template("/products/type.html", type_products=type_products, producers=producers, type=type)
 
 @products_blueprint.route("/products/low-stock/")
 def low_stock():

@@ -16,15 +16,15 @@ body {
 .product-wrapper {
     margin: 10px;
     padding: 10px 20px;
-    background: rgb(141, 167, 154);
-    color: rgb(255, 255, 255);
+    background: rgb(202, 221, 213);
+    color: rgb(37, 37, 37);
     border-radius: 1%;
 }
 
 .producer-wrapper {
     margin: 10px;
     padding: 10px 20px;
-    background: rgb(161, 135, 161);
+    background: rgb(192, 172, 181);
     color: rgb(255, 255, 255);
     border-radius: 1%;
 }
