@@ -59,7 +59,7 @@ header > nav > ul > li {
 
 .filter-bar {
     grid-area: sidebar;
-    margin-top: 10px;
+    margin: 5px 10px;
 }
 
 .item-list {
@@ -74,5 +74,31 @@ h2 {
 #home-nav {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-around;
+}
+
+.nav-buttons {
+    width: 200px;
+    height: 200px;
+    flex-grow: 50%;
+    background: rgb(7, 182, 94);
+    color: rgb(255, 255, 255);
+    border-radius: 10%;
+}
+
+.nav-buttons > a > div > p {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.nav-buttons > a > div {
+    vertical-align: middle;
+}
+
+.nav-buttons > a {
+    text-decoration: none;
+    vertical-align: middle;
 }
 
