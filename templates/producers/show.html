@@ -20,8 +20,14 @@
     <p>
         <b>Item:</b> {{product.name}}  <br><b>Producer:</b> {{product.producer.name}}  <br><b>Stock:</b> {{product.stock}}
     </p>
-    {% if product.stock <= 10 %}
-    <aside>
+    {% if product.stock == 0 %}
+    <aside class="warning">
+        <p>
+            Out of Stock. Please contact supplier:
+        </p>
+    </aside>
+    {% elif product.stock <= 10 %}
+    <aside class="warning">
         <p>
             Stock running low. Please contact supplier.
         </p>

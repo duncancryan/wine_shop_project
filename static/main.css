@@ -40,6 +40,10 @@ body {
     margin-right: 20px;
 }
 
-
+.warning {
+    color: rgb(218, 27, 52);
+    border: rgb(37, 37, 37);
+    border-width: 1px;
+}
 
 

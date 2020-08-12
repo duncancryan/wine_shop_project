@@ -32,7 +32,7 @@
             <b>Stock:</b> {{product.stock}}
         </p>
         {% if product.stock == 0 %}
-        <aside>
+        <aside class="warning">
             <p>
                 Out of Stock. Please contact supplier:
             </p>
@@ -40,7 +40,7 @@
             <p>Telephone: {{product.producer.contact_number}}</p>
         </aside>
         {% elif product.stock <= 10 %}
-        <aside>
+        <aside class="warning">
             <p>
                 Stock running low. Please contact supplier:
             </p>

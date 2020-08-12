@@ -27,8 +27,16 @@
             <b>Stock: </b>{{product.stock}}
         </li>
     </ul>
-        {% if product.stock <= 10 %}
-        <aside>
+        {% if product.stock == 0 %}
+        <aside class="warning">
+            <p>
+                Out of Stock. Please contact supplier:
+            </p>
+            <p>Email: {{product.producer.contact_email}}</p>
+            <p>Telephone: {{product.producer.contact_number}}</p>
+        </aside>
+        {% elif product.stock <= 10 %}
+        <aside class="warning">
             <p>
                 Stock running low. Please contact supplier:
             </p>
