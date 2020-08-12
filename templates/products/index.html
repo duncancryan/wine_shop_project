@@ -2,77 +2,84 @@
 {% block content %}
 
 <h2>Products</h2>
+<main class="index-content">
+    <aside class="filter-bar">
+        <section>
+            <h3>Filter by Producer</h3>
+            {% for producer in producers %}
+            <p>
+            <a href="/products/{{producer.id}}/">{{producer.name}}</a>
+            </p>
+            {% endfor %}
+        </section>
+        <section>
+            <h3>Filter by Type</h3>
+            {% for type in types %}
+            <p>
+            <a href="/products/filter/{{type}}">{{type}}</a>
+            </p>
+            {% endfor %}
+        </section>
+        <section>
+            <h3>Other Options</h3>
+            <p>
+            <a href="/products/low-stock">Low Stock Items</a>
+            </p>
+            <p>
+                <a href="/products/new">Add Product</a>
+            </p>
+        </section>
+    </aside>
 
-<aside class="filter-bar">
-    <section>
-        {% for producer in producers %}
-        <a href="/products/{{producer.id}}/">{{producer.name}}</a>
-        {% endfor %}
-    </section>
-    <section>
-        {% for type in types %}
-        <a href="/products/filter/{{type}}">{{type}}</a>
-        {% endfor %}
-    </section>
-    <section>
-        <a href="/products/low-stock">Low Stock</a>
-    </section>
-</aside>
-
-{% for product in products %}
-<div class="product-wrapper">
-    <section class="details">
-        <p>
-            <b>Item:</b> {{product.name}} 
-        </p>
-        <p>
-            <b>Producer:</b> {{product.producer.name}} 
-        </p>
-        <p>
-            <b>Stock:</b> {{product.stock}}
-        </p>
-        {% if product.stock == 0 %}
-        <aside class="warning">
-            <p>
-                Out of Stock. Please contact supplier:
-            </p>
-            <p>Email: {{product.producer.contact_email}}</p>
-            <p>Telephone: {{product.producer.contact_number}}</p>
-        </aside>
-        {% elif product.stock <= 10 %}
-        <aside class="warning">
-            <p>
-                Stock running low. Please contact supplier:
-            </p>
-        <p>Email: {{product.producer.contact_email}}</p>
-        <p>Telephone: {{product.producer.contact_number}}</p>
-        </aside>
-    </section>
-    {% endif %}
-    <div class="options">
-        <p>
-            <a href="/products/{{product.id}}">More</a>
-        </p>
-        <br>
-        <p>
-            <a href="/products/{{product.id}}/edit">Update Details</a>
-        </p>
-    </div>
-    <div class="delete">
-        <form action="/products/{{ product.id }}/delete" method="POST">
-            <input class="btn btn--danger" type="submit" value="delete" />
-        </form>
-    </div>
-</div>
-{% endfor %}
-<div>
-    <a href="/products/new">
-        <div>
-            <p>
-                Add Product
-            </p>
+    <article class="item-list">
+        {% for product in products %}
+        <div class="product-wrapper">
+            <section class="details">
+                <p>
+                    <b>Item:</b> {{product.name}} 
+                </p>
+                <p>
+                    <b>Producer:</b> {{product.producer.name}} 
+                </p>
+                <p>
+                    <b>Stock:</b> {{product.stock}}
+                </p>
+                {% if product.stock == 0 %}
+                <aside class="warning">
+                    <p>
+                        Out of Stock. Please contact supplier:
+                    </p>
+                    <p>Email: {{product.producer.contact_email}}</p>
+                    <p>Telephone: {{product.producer.contact_number}}</p>
+                </aside>
+                {% elif product.stock <= 10 %}
+                <aside class="warning">
+                    <p>
+                        Stock running low. Please contact supplier:
+                    </p>
+                <p>Email: {{product.producer.contact_email}}</p>
+                <p>Telephone: {{product.producer.contact_number}}</p>
+                </aside>
+            </section>
+            {% endif %}
+            <div class="options">
+                <p>
+                    <a href="/products/{{product.id}}">More</a>
+                </p>
+                <br>
+                <p>
+                    <a href="/products/{{product.id}}/edit">Update Details</a>
+                </p>
+            </div>
+            <div class="delete">
+                <form action="/products/{{ product.id }}/delete" method="POST">
+                    <input class="btn btn--danger" type="submit" value="delete" />
+                </form>
+            </div>
         </div>
-    </a>
-</div>
+        {% endfor %}
+    </article>
+</main>
+
 
 {% endblock %}

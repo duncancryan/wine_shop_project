@@ -2,43 +2,46 @@
 {% block content %}
 
 <h2>Producers</h2>
-
-<aside class="filter-bar">
-    <section>
-        {% for country in countries %}
-        <a href="{{ url_for('producers.by_country', country=country) }}">{{country}}</a>
-        {% endfor %}
-    </section>
-</aside>
-{% for producer in producers %}
-<div class="producer-wrapper">
-    <p>
-        <b>{{producer.name}}</b>
-    </p>
-    <div class="options">
-    <p>
-        <a href="/producers/{{producer.id}}">More</a>
-    </p>
-    <p>
-        <a href="/producers/{{producer.id}}/edit">Update</a>
-    </p>
-    </div>
-    <div class="delete">
-        <form action="/producers/{{ producer.id }}/delete" method="POST">
-            <input class="btn btn--danger" type="submit" value="delete" />
-        </form>
-    </div>
-</div>
-{% endfor %}
-<div>
-    <a href="/producers/new">
-        <div>
+<main class="index-content"></main>
+    <aside class="filter-bar">
+        <section>
+            <h3>Filter by Country</h3>
+            {% for country in countries %}
             <p>
-                Add Producer
+            <a href="{{ url_for('producers.by_country', country=country) }}">{{country}}</a>
             </p>
+            {% endfor %}
+        </section>
+        <section>
+            <h3>Other Options</h3>
+                <p>
+                    <a href="/producers/new">Add Producer</a>
+                </p>
+        </section>
+    </aside>
+    <article class="item-list">
+        {% for producer in producers %}
+        <div class="producer-wrapper">
+            <p>
+                <b>{{producer.name}}</b>
+            </p>
+            <div class="options">
+            <p>
+                <a href="/producers/{{producer.id}}">More</a>
+            </p>
+            <p>
+                <a href="/producers/{{producer.id}}/edit">Update</a>
+            </p>
+            </div>
+            <div class="delete">
+                <form action="/producers/{{ producer.id }}/delete" method="POST">
+                    <input class="btn btn--danger" type="submit" value="delete" />
+                </form>
+            </div>
         </div>
-    </a>
-</div>
+        {% endfor %}
+    </article>
+</main>
 
 
 {% endblock %}
