@@ -84,3 +84,9 @@ def low_stock():
     low_products = product_repository.low_stock()
     return render_template("/products/lowstock.html", low_products=low_products, producers=producers)
 
+@products_blueprint.route("/products/reduced/")
+def reduced_stock():
+    producers = producer_repository.select_all()
+    reduced_products = product_repository.reduced()
+    return render_template("/products/reduced.html", reduced_products=reduced_products, producers=producers)
+

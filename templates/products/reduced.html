@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Reduced Items</h2>
+
+{% for product in reduced_products %}
+<div class="product-wrapper">
+    <p>
+        <b>Item:</b> {{product.name}} <br><b>Producer:</b> {{product.producer.name}} <br><b>Stock:</b> {{product.stock}}
+    </p>
+    {% if product.stock == 0 %}
+    <aside class="warning">
+        <p>
+            Out of Stock. Please contact supplier:
+        </p>
+        <p>Email: {{product.producer.contact_email}}</p>
+        <p>Telephone: {{product.producer.contact_number}}</p>
+    </aside>
+    {% elif product.stock <= 10 %}
+    <aside class="warning">
+        <p>
+            Stock running low. Please contact supplier:
+        </p>
+        <p>Email: {{product.producer.contact_email}}</p>
+        <p>Telephone: {{product.producer.contact_number}}</p>
+    </aside>
+    {% endif %}
+    <div class="options">
+        <p>
+            <a href="/products/{{product.id}}">More</a>
+        </p>
+        <br>
+        <p>
+            <a href="/products/{{product.id}}/edit">Update Details</a>
+        </p>
+    </div>
+    <div class="delete">
+        <form action="/products/{{ product.id }}/delete" method="POST">
+            <input class="btn btn--danger" type="submit" value="delete" />
+        </form>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

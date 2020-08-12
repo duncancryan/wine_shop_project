@@ -86,3 +86,13 @@ def low_stock():
         product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['reduction'], row['id'])
         products.append(product)
     return products
+
+def reduced():
+    products = []
+    sql = "SELECT * FROM products WHERE reduction > 0"
+    results = run_sql(sql)
+    for row in results:
+        producer = producer_repository.select(row['producer_id'])
+        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['reduction'], row['id'])
+        products.append(product)
+    return products
