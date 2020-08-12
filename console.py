@@ -51,4 +51,8 @@ rw_1 = red_wines[0]
 rw_2 = red_wines[1]
 print(rw_1.name)
 print(rw_2.name)
+
+rw_1.reduction = 50
+rw_1.enact_reduction()
+
 pdb.set_trace()

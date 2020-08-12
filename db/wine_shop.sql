@@ -15,8 +15,8 @@ CREATE TABLE products (
     name VARCHAR(255),
     type VARCHAR(255),
     cost DECIMAL,
-    price DECIMAL,
-    case_price DECIMAL,
+    price FLOAT,
+    case_price FLOAT,
     stock INTEGER,
     producer_id INT REFERENCES producers(id) ON DELETE CASCADE,
     reduction INT

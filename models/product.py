@@ -27,4 +27,5 @@ class Product:
         case_reduction = percentage * self.case_price
         self.price -= individual_reduction
         self.case_price -= case_reduction
+
     
