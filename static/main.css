@@ -3,6 +3,7 @@ header {
     padding: 0;
     background-color: rgb(214, 246, 250);
     display: flex;
+    flex: row;
 }
 
 body {
@@ -45,5 +46,20 @@ body {
     border: rgb(37, 37, 37);
     border-width: 1px;
 }
+
+
+header > nav > ul > li {
+    display: inline;
+    margin-right: 5px;
+    justify-content: flex-end;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+
+
 
 
