@@ -12,11 +12,11 @@ def producers():
     countries = producer_repository.get_countries_distinct()
     return render_template("producers/index.html", producers=producers, countries=countries)
 
-@producers_blueprint.route("/producers/<id>")
+@producers_blueprint.route("/producers/<id>/")
 def show_producer(id):
     producer = producer_repository.select(id)
-    products = producer_repository.products(producer)
-    return render_template("producers/show.html", producer=producer, products=products)
+    own_products = producer_repository.products(producer)
+    return render_template("producers/show.html", producer=producer, own_products=own_products)
 
 @producers_blueprint.route("/producers/new")
 def new_producer():
@@ -57,7 +57,7 @@ def delete_producer(id):
     producer_repository.delete(id)
     return redirect("/producers")
 
-@producers_blueprint.route("/producers/<country>/")
+@producers_blueprint.route("/producers/filter/<country>/")
 def by_country(country):
     local_producers = producer_repository.select_country(country)
     return render_template("/producers/country.html", local_producers=local_producers, country=country)

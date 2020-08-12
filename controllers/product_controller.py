@@ -13,7 +13,7 @@ def products():
     types = product_repository.get_distinct_types()
     return render_template('/products/index.html', products=products, producers=producers, types=types)
 
-@products_blueprint.route("/products/<id>")
+@products_blueprint.route("/products/<id>/")
 def show_product(id):
     product = product_repository.select(id)
     individual_markup = product.calculate_markup_individual()
@@ -66,7 +66,7 @@ def delete_product(id):
     product_repository.delete(id)
     return redirect("/products")
 
-@products_blueprint.route("/products/<producerid>/")
+@products_blueprint.route("/products/producer/<producerid>/")
 def by_producer(producerid):
     producer_case = producer_repository.select(producerid)
     product_catalogue = product_repository.select_producer(producer_case)
