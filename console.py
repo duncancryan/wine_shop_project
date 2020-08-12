@@ -13,7 +13,7 @@ producer2 = Producer("Newton Johnson", "South Africa", "+27283123862", "wine@new
 producer_repository.save(producer2)
 producer3 = Producer("Ataraxia", "South Africa", "+2345678910", "wine@ataraxia.com")
 producer_repository.save(producer3)
-product1 = Product("Plymouth Gin", "Gin", producer1, 10.50, 22.00, 115.00, 43)
+product1 = Product("Plymouth Gin", "Gin", producer1, 10.50, 22.00, 115.00, 43, )
 product_repository.save(product1)
 product2 = Product("Newton Johnson Pinot Noir 2015", "Red Wine", producer2, 8.50, 18.95, 107.50, 34)
 product_repository.save(product2)

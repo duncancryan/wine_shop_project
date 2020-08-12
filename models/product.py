@@ -1,5 +1,5 @@
 class Product:
-    def __init__(self, name, type, producer, cost, price, case_price, stock, id = None, reduction = 0):
+    def __init__(self, name, type, producer, cost, price, case_price, stock, reduction = 0, id = None):
         self.name = name
         self.type = type
         self.producer = producer
