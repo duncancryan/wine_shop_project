@@ -11,15 +11,30 @@
         <li>
             <b>Cost: </b>{{product.cost}}
         </li>
+        {% if product.reduction > 0 %}
+        <li class="reduced-price">
+            <b>Price: </b>{{ product.price|round(2, 'common') }} <br> {{product.reduction}}% off
+        </li>
+        {% else %}
         <li>
             <b>Price: </b>{{product.price}}
         </li>
+        {% endif %}
+
         <li>
             <b>Individual Mark-Up: </b>{{individual_markup}}%
         </li>
+
+        {% if product.reduction > 0 %}
+        <li class="reduced-price">
+            <b>Case Price: </b>{{ product.case_price|round(2, 'common') }} <br> {{product.reduction}}% off
+        </li>
+        {% else %}
         <li>
             <b>Case Price: </b>{{product.case_price}}
         </li>
+        {% endif %}
+
         <li>
             <b>Case Mark-Up: </b>{{case_markup}}%
         </li>
