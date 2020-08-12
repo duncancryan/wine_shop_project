@@ -23,19 +23,21 @@
         <p>Telephone: {{product.producer.contact_number}}</p>
     </aside>
     {% endif %}
-    <p>
-        <a href="/products/{{product.id}}">More</a>
-    </p>
-    <p>
-    <form action="/products/{{ product.id }}/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
-    </form>
-    </p>
-</div>
-<div>
-    <a href="/products/{{product.id}}/edit">
-        <p>Update Inventory</p>
-    </a>
+    <div class="item-options">
+        <p>
+            <a href="/products/{{product.id}}">More</a>
+        </p>
+        <p>
+        <form action="/products/{{ product.id }}/delete" method="POST">
+            <input class="btn btn--danger" type="submit" value="delete" />
+        </form>
+        </p>
+        <div>
+            <a href="/products/{{product.id}}/edit">
+                <p>Update Details</p>
+            </a>
+        </div>
+    </div>
 </div>
 {% endfor %}
 {% endblock %}
