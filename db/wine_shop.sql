@@ -18,5 +18,6 @@ CREATE TABLE products (
     price DECIMAL,
     case_price DECIMAL,
     stock INTEGER,
-    producer_id INT REFERENCES producers(id) ON DELETE CASCADE
+    producer_id INT REFERENCES producers(id) ON DELETE CASCADE,
+    reduction INT
 );
