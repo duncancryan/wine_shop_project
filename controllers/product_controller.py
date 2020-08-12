@@ -42,7 +42,7 @@ def create_product():
 @products_blueprint.route("/products/<id>/edit")
 def edit_product(id):
     product = product_repository.select(id)
-    producers = product_repository.select_all()
+    producers = producer_repository.select_all()
     return render_template("products/edit.html", product=product, producers=producers)
 
 @products_blueprint.route("/products/<id>", methods=['POST'])
