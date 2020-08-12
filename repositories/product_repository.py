@@ -19,7 +19,7 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         producer = producer_repository.select(row['producer_id'])
-        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['id'], row['reduction'])
+        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['reduction'], row['id'])
         products.append(product)
     return products
 
@@ -30,7 +30,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     if result is not None:
         producer = producer_repository.select(result['producer_id'])
-        product = Product(result['name'], result['type'], producer, result['cost'], result['price'], result['case_price'], result['stock'], result['id'], result['reduction'])
+        product = Product(result['name'], result['type'], producer, result['cost'], result['price'], result['case_price'], result['stock'], result['reduction'], result['id'])
     return product
 
 def delete_all():
@@ -53,7 +53,7 @@ def select_producer(producer):
     values = [producer.id]
     results = run_sql(sql, values)
     for row in results:
-        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['id'], row['reduction'])
+        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['reduction'], row['id'])
         products.append(product)
     return products
 
@@ -73,7 +73,7 @@ def select_type(type):
     results = run_sql(sql, values)
     for row in results:
         producer = producer_repository.select(row['producer_id'])
-        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['id'], row['reduction'])
+        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['reduction'], row['id'])
         products.append(product)
     return products
 
@@ -83,6 +83,6 @@ def low_stock():
     results = run_sql(sql)
     for row in results:
         producer = producer_repository.select(row['producer_id'])
-        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['id'], row['reduction'])
+        product = Product(row['name'], row['type'], producer, row['cost'], row['price'], row['case_price'], row['stock'], row['reduction'], row['id'])
         products.append(product)
     return products

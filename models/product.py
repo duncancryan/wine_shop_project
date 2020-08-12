@@ -7,8 +7,8 @@ class Product:
         self.price = price
         self.case_price = case_price
         self.stock = stock
-        self.id = id
         self.reduction = reduction
+        self.id = id
 
     def calculate_markup_individual(self):
         difference = self.price - self.cost
