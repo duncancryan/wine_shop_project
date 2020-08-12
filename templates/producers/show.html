@@ -11,6 +11,14 @@
     <li>
         <b>Contact Email: </b> {{producer.contact_email}}
     </li>
+    <li>
+        <b>Active: </b>
+        {% if producer.active %}
+        Yes
+        {% else %}
+        No
+        {% endif %}
+    </li>
 </ul>
 
 <h3>Products:</h3>

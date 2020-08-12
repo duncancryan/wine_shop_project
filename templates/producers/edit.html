@@ -20,6 +20,13 @@
         <label for="contact_email"">Contact contact_email:</label>
         <input type="text" id="contact-email" name="contact-email" value="{{producer.contact_email}}" required>
     </div>
+    <div>
+        <label for="active">Active:</label>
+        <select name="active" id="active">
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+        </select>
+    </div>
     <button class="btn btn--action" type="submit">Update</button>
 </form>
 

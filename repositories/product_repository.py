@@ -15,7 +15,7 @@ def save(product):
 
 def select_all():
     products = []
-    sql = "SELECT * FROM PRODUCTS"
+    sql = "SELECT * FROM products"
     results = run_sql(sql)
     for row in results:
         producer = producer_repository.select(row['producer_id'])

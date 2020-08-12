@@ -44,7 +44,8 @@ def update_producer(id):
     country = request.form["country"]
     contact_number = request.form['contact-number']
     contact_email = request.form['contact-email']
-    producer = Producer(name, country, contact_number, contact_email, id)
+    active = bool(request.form['active'])
+    producer = Producer(name, country, contact_number, contact_email, id, active)
     producer_repository.update(producer)
     return redirect("/producers")
 
