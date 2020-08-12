@@ -21,46 +21,47 @@
 
 {% for product in products %}
 <div class="product-wrapper">
-    <p>
-        <b>Item:</b> {{product.name}} 
-    </p>
-    <p>
-        <b>Producer:</b> {{product.producer.name}} 
-    </p>
-    <p>
-        <b>Stock:</b> {{product.stock}}
-    </p>
-    {% if product.stock == 0 %}
-    <aside>
+    <section class="details">
         <p>
-            Out of Stock. Please contact supplier:
+            <b>Item:</b> {{product.name}} 
         </p>
+        <p>
+            <b>Producer:</b> {{product.producer.name}} 
+        </p>
+        <p>
+            <b>Stock:</b> {{product.stock}}
+        </p>
+        {% if product.stock == 0 %}
+        <aside>
+            <p>
+                Out of Stock. Please contact supplier:
+            </p>
+            <p>Email: {{product.producer.contact_email}}</p>
+            <p>Telephone: {{product.producer.contact_number}}</p>
+        </aside>
+        {% elif product.stock <= 10 %}
+        <aside>
+            <p>
+                Stock running low. Please contact supplier:
+            </p>
         <p>Email: {{product.producer.contact_email}}</p>
         <p>Telephone: {{product.producer.contact_number}}</p>
-    </aside>
-    {% elif product.stock <= 10 %}
-    <aside>
-        <p>
-            Stock running low. Please contact supplier:
-        </p>
-       <p>Email: {{product.producer.contact_email}}</p>
-       <p>Telephone: {{product.producer.contact_number}}</p>
-    </aside>
+        </aside>
+    </section>
     {% endif %}
-    <div class="item-options">
+    <div class="options">
         <p>
             <a href="/products/{{product.id}}">More</a>
         </p>
+        <br>
         <p>
+            <a href="/products/{{product.id}}/edit">Update Details</a>
+        </p>
+    </div>
+    <div class="delete">
         <form action="/products/{{ product.id }}/delete" method="POST">
             <input class="btn btn--danger" type="submit" value="delete" />
-        </form>    
-        </p>
-        <div>
-            <a href="/products/{{product.id}}/edit">
-                <p>Update Details</p>
-            </a>
-        </div>
+        </form>
     </div>
 </div>
 {% endfor %}
