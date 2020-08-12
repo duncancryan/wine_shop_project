@@ -1,6 +1,23 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: seashell;
     color: rgb(37, 37, 37);
     font-family: 'Crimson Text', serif;
+}
+
+.product-wrapper {
+    margin: 10px;
+    padding: 10px 20px;
+    background: rgb(141, 167, 154);
+    color: rgb(255, 255, 255);
+    border-radius: 1%;
+}
+
+.producer-wrapper {
+    margin: 10px;
+    padding: 10px 20px;
+    background: rgb(161, 135, 161);
+    color: rgb(255, 255, 255);
+    border-radius: 1%;
 }
