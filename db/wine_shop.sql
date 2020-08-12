@@ -14,10 +14,10 @@ CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     type VARCHAR(255),
-    cost DECIMAL,
+    cost FLOAT,
     price FLOAT,
     case_price FLOAT,
     stock INTEGER,
     producer_id INT REFERENCES producers(id) ON DELETE CASCADE,
-    reduction INT
+    reduction FLOAT
 );

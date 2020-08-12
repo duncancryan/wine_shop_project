@@ -52,10 +52,12 @@ def update_product(id):
     producer_id = request.form['producer-id']
     producer = producer_repository.select(producer_id)
     cost = request.form['cost']
-    price = request.form['price']
-    case_price = request.form['case-price']
+    price = float(request.form['price'])
+    case_price = float(request.form['case-price'])
     stock = request.form['stock']
-    product = Product(name, type, producer, cost, price, case_price, stock, id)
+    reduction = float(request.form['reduction'])
+    product = Product(name, type, producer, cost, price, case_price, stock, reduction, id)
+    product.enact_reduction()
     product_repository.update(product)
     return redirect("/products")
 
