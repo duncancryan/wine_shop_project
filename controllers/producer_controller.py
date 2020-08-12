@@ -56,4 +56,4 @@ def delete_producer(id):
 @producers_blueprint.route("/producers/<country>/")
 def by_country(country):
     local_producers = producer_repository.select_country(country)
-    return render_template("/producers/country.html", local_producers=local_producers)
+    return render_template("/producers/country.html", local_producers=local_producers, country=country)
