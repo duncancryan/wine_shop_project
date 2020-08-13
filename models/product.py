@@ -24,10 +24,8 @@ class Product:
     def enact_reduction(self):
         percentage = self.reduction / 100
         individual_reduction = percentage * self.price
-        round_in_red = round(individual_reduction, 2)
         case_reduction = percentage * self.case_price
-        round_case_red = round(case_reduction, 2)
-        self.price -= round_in_red
-        self.case_price -= round_case_red
+        self.price -= individual_reduction
+        self.case_price -= case_reduction
 
     
