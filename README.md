@@ -3,18 +3,38 @@ My first project: Admin/inventory software for an independent wine shop built us
 
 Technologies used: Python3, Flask (and Jinja2), PostgreSQL, psycopg2, html and CSS
 
-In order to run the application: 
+In order to run the application locally: 
+
+If you are not familiar with Python's virtual environment capacity:
 
 - make sure that the above technologies are installed.
 - download the code, and enter the working directory
 - drop, then create the database and connect the sql file to it with the following commands:
+
     - dropdb wine_shop
     - createdb wine_shop
     - psql -d wine_shop -f db/wine_shop.sql
+
 - if you wish to seed the database with a few items before running the app (as opposed to using the create routes in the application) run the command:
     - python3 console.py
+
 - to launch the application:
     - flask run
+    - the application should run at localhost:5000
+
+
+If you are familiar with virtual environment:
+
+- create a virtual environment with the command "python3 -m venv venv"
+- to install the correct dependencies run "pip3 install -r requirements.txt"
+- You will still need to have PostgreSQL installed on your system and will need to drop and create the wine_shop database as specified above, then connect it with the following commands:
+
+    - dropdb wine_shop
+    - createdb wine_shop
+    - psql -d wine_shop -f db/wine_shop.sql
+
+- run the application as before with "flask run"
+- it should be running at localhost:5000.
 
 The following outlines the brief for the MVP for this project:
 
